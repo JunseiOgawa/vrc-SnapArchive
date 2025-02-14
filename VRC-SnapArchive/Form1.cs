@@ -10,18 +10,89 @@ using System.Windows.Forms;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Globalization;
-// using VRC_SnapArchive.FileCompressor; ※同一namespace内の場合不要
+using VRC_SnapArchive;
 
 namespace VRC_SnapArchive
 {
     public partial class Form1: Form
     {
+        // 新規追加：ファイル名リネーム用ラベルのためのフィールド
+        private Label labelFileRename;
+
         public Form1()
         {
             InitializeComponent();
+            // 新規追加：ファイル名リネーム用ラベルを作成して追加
+            AddFileRenameLabel();
+            InitializeFileNameRenamingDropdown();
             this.AutoScaleMode = AutoScaleMode.Dpi;
             // 初期状態の同期（チェック状態により圧縮設定の表示切替）
             checkBoxCompress_CheckedChanged(this, EventArgs.Empty);
+        }
+
+        // 新規追加：ファイル名リネーム用ラベルを生成し、フォームに追加
+        private void AddFileRenameLabel()
+        
+        {
+            labelFileRename = new Label();
+            labelFileRename.Text = "ファイル名をリネームする：";
+
+            labelFileRename.Location = new Point(10, 10);
+            labelFileRename.AutoSize = true;
+            this.Controls.Add(labelFileRename);
+        }
+
+        private void InitializeFileNameRenamingDropdown()
+        {
+            comboBox1.Items.Clear();
+            comboBox1.Items.Add("有効");
+            List<string> dateFormats = new List<string>();
+            try
+            {
+                string filePath = Path.Combine(Application.StartupPath, "dateformats.txt");
+                if(File.Exists(filePath))
+                {
+                    // ファイルから日付形式を読み込む
+                    string[] lines = File.ReadAllLines(filePath, Encoding.GetEncoding("UTF-8"));
+                    dateFormats.AddRange(lines);
+                }
+                else
+                {
+                    // ファイルが存在しない場合は既定の形式を追加
+                    dateFormats.AddRange(new string[] {
+                        "年-月-日-時分-連番",
+                        "年/月/日/時分/連番",
+                        "年_月_日_時分_連番",
+                        "年月日_時分_連番",
+                        "和暦年-月-日-時分-連番",
+                        "年-月-日-曜日-時分-連番",
+                        "日-月-年-時分-連番",
+                        "月-日-年-時分-連番",
+                        "年.月.日.時分.連番",
+                        "時分_年月日_連番"
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                // 読み込みでエラーが発生した場合は既定の形式を追加
+                dateFormats.AddRange(new string[] {
+                    "年-月-日-時分-連番",
+                    "年/月/日/時分/連番",
+                    "年_月_日_時分_連番",
+                    "年月日_時分_連番",
+                    "和暦年-月-日-時分-連番",
+                    "年-月-日-曜日-時分-連番",
+                    "日-月-年-時分-連番",
+                    "月-日-年-時分-連番",
+                    "年.月.日.時分.連番",
+                    "時分_年月日_連番"
+                });
+            }
+            foreach (string format in dateFormats)
+            {
+                comboBox1.Items.Add(format);
+            }
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
@@ -171,7 +242,6 @@ namespace VRC_SnapArchive
                             }
                             catch(Exception ex)
                             {
-                                // エラーログ出力などの処理を実装可能
                             }
                         }
                     }
@@ -208,6 +278,75 @@ namespace VRC_SnapArchive
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSelectArchives_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog dlg = new OpenFileDialog())
+            {
+                dlg.Filter = "7Zip ファイル (*.7z)|*.7z";
+                dlg.Multiselect = true;
+                if(dlg.ShowDialog() == DialogResult.OK)
+                {
+                    listBoxArchives.Items.Clear();
+                    foreach (var file in dlg.FileNames)
+                    {
+                        listBoxArchives.Items.Add(file);
+                    }
+                }
+            }
+        }
+
+        private void btnExtractDestBrowse_Click(object sender, EventArgs e)
+        {
+            using (FolderBrowserDialog dlg = new FolderBrowserDialog())
+            {
+                if(dlg.ShowDialog() == DialogResult.OK)
+                {
+                    textBoxExtractDest.Text = dlg.SelectedPath;
+                }
+            }
+        }
+
+        private void btnExtract_Click(object sender, EventArgs e)
+        {
+            string outputFolder = textBoxExtractDest.Text;
+            if (!Directory.Exists(outputFolder)) return;
+
+            foreach (var item in listBoxArchives.Items)
+            {
+                string archivePath = item.ToString();
+                if (File.Exists(archivePath))
+                {
+                    FileDecompressor.DecompressArchive(archivePath, outputFolder);
+                }
+            }
+            MessageBox.Show("解凍が完了しました。", "情報", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelGroupHeader_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxOutput_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBoxFileDetailInfo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

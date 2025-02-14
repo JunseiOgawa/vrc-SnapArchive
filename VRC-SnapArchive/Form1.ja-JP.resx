@@ -121,6 +121,9 @@
   <data name="labelGroupHeader.Font" type="System.Drawing.Font, System.Drawing">
     <value>ＭＳ 明朝, 16pt, style=Bold</value>
   </data>
+  <data name="labelGroupHeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 13</value>
+  </data>
   <data name="labelGroupHeader.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 27</value>
   </data>
@@ -135,6 +138,10 @@
   </data>
   <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 97</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnBrowse.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="btnBrowse.Location" type="System.Drawing.Point, System.Drawing">
     <value>314, 97</value>
@@ -284,7 +291,7 @@
 </value>
   </data>
   <data name="pictureBoxCompressInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>236, 62</value>
+    <value>239, 63</value>
   </data>
   <data name="checkBoxFileDetail.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 137</value>
@@ -293,34 +300,37 @@
     <value>12, 162</value>
   </data>
   <data name="labelCompressDestination.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 102</value>
+    <value>16, 105</value>
   </data>
   <data name="textBoxCompress.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 137</value>
+    <value>15, 140</value>
   </data>
   <data name="btnCompressBrowse.Location" type="System.Drawing.Point, System.Drawing">
-    <value>315, 137</value>
+    <value>318, 140</value>
   </data>
   <data name="labelCompressionMethod.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 191</value>
+    <value>16, 194</value>
   </data>
   <data name="radioButtonLossless.Location" type="System.Drawing.Point, System.Drawing">
-    <value>141, 191</value>
+    <value>131, 192</value>
   </data>
   <data name="radioButtonStandard.Location" type="System.Drawing.Point, System.Drawing">
-    <value>221, 191</value>
+    <value>221, 192</value>
   </data>
   <data name="labelLosslessNote.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 221</value>
+    <value>15, 224</value>
   </data>
   <data name="checkBoxCompress.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 66</value>
+    <value>15, 67</value>
   </data>
   <data name="btnExit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>684, 472</value>
+    <value>654, 525</value>
+  </data>
+  <data name="btnExit.Text" xml:space="preserve">
+    <value> 閉じる</value>
   </data>
   <data name="btnApply.Location" type="System.Drawing.Point, System.Drawing">
-    <value>564, 472</value>
+    <value>534, 525</value>
   </data>
   <data name="checkBoxOutput.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 232</value>
@@ -335,14 +345,19 @@
     <value>ＭＳ 明朝, 16pt, style=Bold</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 10</value>
+    <value>10, 13</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>186, 27</value>
+    <value>70, 27</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label2.Text" xml:space="preserve">
+    <value>圧縮</value>
+  </data>
   <data name="tabControlMain.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="tabControlMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>750, 500</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="tabPageFile.AutoScroll" type="System.Boolean, mscorlib">
@@ -354,6 +369,18 @@
   <data name="tabPageFile.Text" xml:space="preserve">
     <value>ファイル</value>
   </data>
+  <data name="checkBox1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 22</value>
+  </data>
+  <data name="checkBox1.Text" xml:space="preserve">
+    <value>ファイル名をリネームする</value>
+  </data>
   <data name="tabPageCompress.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -363,8 +390,74 @@
   <data name="tabPageCompress.Text" xml:space="preserve">
     <value>圧縮</value>
   </data>
-  <data name="tabControlMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>750, 500</value>
+  <data name="tabPageExtract.Size" type="System.Drawing.Size, System.Drawing">
+    <value>742, 468</value>
+  </data>
+  <data name="tabPageExtract.Text" xml:space="preserve">
+    <value>解凍</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>ＭＳ 明朝, 16pt, style=Bold</value>
+  </data>
+  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 13</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 27</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>解凍</value>
+  </data>
+  <data name="btnSelectArchives.Location" type="System.Drawing.Point, System.Drawing">
+    <value>210, 69</value>
+  </data>
+  <data name="btnSelectArchives.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 25</value>
+  </data>
+  <data name="btnSelectArchives.Text" xml:space="preserve">
+    <value>参照</value>
+  </data>
+  <data name="listBoxArchives.ItemHeight" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="listBoxArchives.Size" type="System.Drawing.Size, System.Drawing">
+    <value>717, 292</value>
+  </data>
+  <data name="textBoxExtractDest.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 69</value>
+  </data>
+  <data name="textBoxExtractDest.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 25</value>
+  </data>
+  <data name="tabPagePhotoInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>742, 468</value>
+  </data>
+  <data name="tabPagePhotoInfo.Text" xml:space="preserve">
+    <value>撮影情報</value>
+  </data>
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>ＭＳ 明朝, 16pt, style=Bold</value>
+  </data>
+  <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 13</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 27</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>撮影情報</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>766, 567</value>
