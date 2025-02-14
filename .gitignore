@@ -1,0 +1,33 @@
+## ビルド成果物
+bin/
+obj/
+
+## Visual Studio 関連
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+## NuGet パッケージ
+*.nupkg
+# NuGet パッケージ復元用のフォルダを除外しない場合はコメントアウト
+# packages/
+
+## Log ファイルおよび一時ファイル
+*.log
+*.tlog
+*.vspscc
+*_i.c
+*_p.c
+*_h.h
+*.cache
+*.dbmdl
+
+## その他
+*.DS_Store
+*.apk
+*.pdb
