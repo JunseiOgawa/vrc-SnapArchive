@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Globalization;
+// using VRC_SnapArchive.FileCompressor; ※同一namespace内の場合不要
 
 namespace VRC_SnapArchive
 {
@@ -18,16 +19,20 @@ namespace VRC_SnapArchive
         public Form1()
         {
             InitializeComponent();
+            this.AutoScaleMode = AutoScaleMode.Dpi;
             // 初期状態の同期（チェック状態により圧縮設定の表示切替）
             checkBoxCompress_CheckedChanged(this, EventArgs.Empty);
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
-            OpenFileDialog dlg = new OpenFileDialog();
-            if (dlg.ShowDialog() == DialogResult.OK)
+            // ※フォルダ指定ダイアログへ変更
+            using (FolderBrowserDialog dlg = new FolderBrowserDialog())
             {
-                textBox1.Text = dlg.FileName;
+                if(dlg.ShowDialog() == DialogResult.OK)
+                {
+                    textBox1.Text = dlg.SelectedPath;
+                }
             }
         }
 
@@ -174,18 +179,37 @@ namespace VRC_SnapArchive
             }
             // ----- 以上、整頓処理 -----
             
+            // ----- 新規追加：7zipによる圧縮処理 -----
+            if(compressEnabled && Directory.Exists(outputPath))
+            {
+                // 出力先内の各整理フォルダを圧縮
+                string[] directories = Directory.GetDirectories(outputPath);
+                foreach(string dir in directories)
+                {
+                    string archiveFile = Path.Combine(outputPath, Path.GetFileName(dir) + ".7z");
+                    FileCompressor.CompressDirectory(dir, archiveFile, radioButtonLossless.Checked);
+                    // ※必要に応じて、圧縮後に dir の削除などを検討
+                }
+            }
+            // ----- 以上、圧縮処理 -----
+            
             // 既存：設定内容のサマリー表示
             string summary = $"【設定内容】\n" +
-                             $"写真保存先： {photoSavePath}\n" +
-                             $"出力先： {outputPath}\n" +
-                             $"ファイル詳細保存： {(fileDetail ? "有り" : "無し")}" +
-                             (fileDetail ? $" 　→ グループ分け： {folderGrouping}\n" : "\n") +
-                             $"圧縮先： {compressPath}\n" +
-                             $"圧縮設定： {(compressEnabled ? $"有り ({compressionMethod})" : "無し")}";
-                             
+                            $"写真保存先： {photoSavePath}\n" +
+                            $"出力先： {outputPath}\n" +
+                            $"ファイル詳細保存： {(fileDetail ? "有り" : "無し")}" +
+                            (fileDetail ? $" 　→ グループ分け： {folderGrouping}\n" : "\n") +
+                            $"圧縮先： {compressPath}\n" +
+                            $"圧縮設定： {(compressEnabled ? $"有り ({compressionMethod})" : "無し")}";
+
             MessageBox.Show(summary, "設定の適用", MessageBoxButtons.OK, MessageBoxIcon.Information);
             
             // 追加処理の結果に応じたエラーチェックやログ出力を必要に応じて実装
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

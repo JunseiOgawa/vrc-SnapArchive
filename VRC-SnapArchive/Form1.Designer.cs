@@ -49,6 +49,14 @@
         private System.Windows.Forms.TextBox textBoxOutput;
         private System.Windows.Forms.Button btnOutputBrowse;
 
+        // 新規追加：TabControl 等の生成
+        private System.Windows.Forms.TabControl tabControlMain;
+        private System.Windows.Forms.TabPage tabPageFile;
+        private System.Windows.Forms.TabPage tabPageCompress;
+        // 新規追加：追加のタブ
+        private System.Windows.Forms.TabPage tabPageExtract;
+        private System.Windows.Forms.TabPage tabPagePhotoInfo;
+
         /// <summary>
         /// 使用中のリソースをすべてクリーンアップします。
         /// </summary>
@@ -98,312 +106,292 @@
             this.checkBoxOutput = new System.Windows.Forms.CheckBox();
             this.textBoxOutput = new System.Windows.Forms.TextBox();
             this.btnOutputBrowse = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tabControlMain = new System.Windows.Forms.TabControl();
+            this.tabPageFile = new System.Windows.Forms.TabPage();
+            this.tabPageCompress = new System.Windows.Forms.TabPage();
+            // 新規追加：タブの生成
+            this.tabPageExtract = new System.Windows.Forms.TabPage();
+            this.tabPagePhotoInfo = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFileDetailInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCompressInfo)).BeginInit();
             this.groupBoxFolderGrouping.SuspendLayout();
+            this.tabControlMain.SuspendLayout();
+            this.tabPageFile.SuspendLayout();
+            this.tabPageCompress.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelGroupHeader
             // 
-            this.labelGroupHeader.AutoSize = true;
-            this.labelGroupHeader.Font = new System.Drawing.Font("ＭＳ 明朝", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelGroupHeader.Location = new System.Drawing.Point(12, 10);
+            resources.ApplyResources(this.labelGroupHeader, "labelGroupHeader");
             this.labelGroupHeader.Name = "labelGroupHeader";
-            this.labelGroupHeader.Size = new System.Drawing.Size(110, 24);
-            this.labelGroupHeader.TabIndex = 0;
-            this.labelGroupHeader.Text = "ファイル";
+            this.toolTip1.SetToolTip(this.labelGroupHeader, resources.GetString("labelGroupHeader.ToolTip"));
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("ＭＳ 明朝", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.Location = new System.Drawing.Point(12, 40);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(269, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "ゲーム内写真の保存先(参照)";
+            this.toolTip1.SetToolTip(this.label1, resources.GetString("label1.ToolTip"));
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 75);
+            resources.ApplyResources(this.textBox1, "textBox1");
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(600, 25);
-            this.textBox1.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.textBox1, resources.GetString("textBox1.ToolTip"));
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(620, 75);
+            resources.ApplyResources(this.btnBrowse, "btnBrowse");
             this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(75, 25);
-            this.btnBrowse.TabIndex = 3;
-            this.btnBrowse.Text = "参照...";
+            this.toolTip1.SetToolTip(this.btnBrowse, resources.GetString("btnBrowse.ToolTip"));
             this.btnBrowse.UseVisualStyleBackColor = true;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // pictureBoxInfo
             // 
-            this.pictureBoxInfo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxInfo.Image")));
-            this.pictureBoxInfo.Location = new System.Drawing.Point(287, 36);
+            resources.ApplyResources(this.pictureBoxInfo, "pictureBoxInfo");
             this.pictureBoxInfo.Name = "pictureBoxInfo";
-            this.pictureBoxInfo.Size = new System.Drawing.Size(24, 24);
-            this.pictureBoxInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxInfo.TabIndex = 18;
             this.pictureBoxInfo.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBoxInfo, "ここでVRCの写真の保存先を指定してください\n※選択されたファイルのパスが表示されます。");
+            this.toolTip1.SetToolTip(this.pictureBoxInfo, resources.GetString("pictureBoxInfo.ToolTip"));
             // 
             // pictureBoxFileDetailInfo
             // 
-            this.pictureBoxFileDetailInfo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxFileDetailInfo.Image")));
-            this.pictureBoxFileDetailInfo.Location = new System.Drawing.Point(220, 113);
+            resources.ApplyResources(this.pictureBoxFileDetailInfo, "pictureBoxFileDetailInfo");
             this.pictureBoxFileDetailInfo.Name = "pictureBoxFileDetailInfo";
-            this.pictureBoxFileDetailInfo.Size = new System.Drawing.Size(24, 24);
-            this.pictureBoxFileDetailInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxFileDetailInfo.TabIndex = 17;
             this.pictureBoxFileDetailInfo.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBoxFileDetailInfo, "チェックを入れると、単位ごとにフォルダ分けされます。");
+            this.toolTip1.SetToolTip(this.pictureBoxFileDetailInfo, resources.GetString("pictureBoxFileDetailInfo.ToolTip"));
             // 
             // pictureBoxCompressInfo
             // 
-            this.pictureBoxCompressInfo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxCompressInfo.Image")));
-            this.pictureBoxCompressInfo.Location = new System.Drawing.Point(235, 346);
+            resources.ApplyResources(this.pictureBoxCompressInfo, "pictureBoxCompressInfo");
             this.pictureBoxCompressInfo.Name = "pictureBoxCompressInfo";
-            this.pictureBoxCompressInfo.Size = new System.Drawing.Size(24, 24);
-            this.pictureBoxCompressInfo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxCompressInfo.TabIndex = 16;
             this.pictureBoxCompressInfo.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBoxCompressInfo, "月ごとに圧縮しファイル容量を削減します");
+            this.toolTip1.SetToolTip(this.pictureBoxCompressInfo, resources.GetString("pictureBoxCompressInfo.ToolTip"));
             // 
             // checkBoxFileDetail
             // 
-            this.checkBoxFileDetail.AutoSize = true;
-            this.checkBoxFileDetail.Location = new System.Drawing.Point(12, 115);
+            resources.ApplyResources(this.checkBoxFileDetail, "checkBoxFileDetail");
             this.checkBoxFileDetail.Name = "checkBoxFileDetail";
-            this.checkBoxFileDetail.Size = new System.Drawing.Size(202, 22);
-            this.checkBoxFileDetail.TabIndex = 4;
-            this.checkBoxFileDetail.Text = "ファイルを細かく保存する";
+            this.toolTip1.SetToolTip(this.checkBoxFileDetail, resources.GetString("checkBoxFileDetail.ToolTip"));
+            this.checkBoxFileDetail.CheckedChanged += new System.EventHandler(this.checkBoxFileDetail_CheckedChanged);
             // 
             // groupBoxFolderGrouping
             // 
+            resources.ApplyResources(this.groupBoxFolderGrouping, "groupBoxFolderGrouping");
             this.groupBoxFolderGrouping.Controls.Add(this.radioButtonMonth);
             this.groupBoxFolderGrouping.Controls.Add(this.radioButtonWeek);
             this.groupBoxFolderGrouping.Controls.Add(this.radioButtonDay);
-            this.groupBoxFolderGrouping.Enabled = false;
-            this.groupBoxFolderGrouping.Location = new System.Drawing.Point(12, 140);
             this.groupBoxFolderGrouping.Name = "groupBoxFolderGrouping";
-            this.groupBoxFolderGrouping.Size = new System.Drawing.Size(300, 60);
-            this.groupBoxFolderGrouping.TabIndex = 5;
             this.groupBoxFolderGrouping.TabStop = false;
-            this.groupBoxFolderGrouping.Text = "フォルダ分け";
+            this.toolTip1.SetToolTip(this.groupBoxFolderGrouping, resources.GetString("groupBoxFolderGrouping.ToolTip"));
             // 
             // radioButtonMonth
             // 
-            this.radioButtonMonth.AutoSize = true;
-            this.radioButtonMonth.Location = new System.Drawing.Point(10, 25);
+            resources.ApplyResources(this.radioButtonMonth, "radioButtonMonth");
+            this.radioButtonMonth.Checked = true;
             this.radioButtonMonth.Name = "radioButtonMonth";
-            this.radioButtonMonth.Size = new System.Drawing.Size(83, 22);
-            this.radioButtonMonth.TabIndex = 0;
             this.radioButtonMonth.TabStop = true;
-            this.radioButtonMonth.Text = "月単位";
+            this.toolTip1.SetToolTip(this.radioButtonMonth, resources.GetString("radioButtonMonth.ToolTip"));
             this.radioButtonMonth.UseVisualStyleBackColor = true;
             // 
             // radioButtonWeek
             // 
-            this.radioButtonWeek.AutoSize = true;
-            this.radioButtonWeek.Location = new System.Drawing.Point(100, 25);
+            resources.ApplyResources(this.radioButtonWeek, "radioButtonWeek");
             this.radioButtonWeek.Name = "radioButtonWeek";
-            this.radioButtonWeek.Size = new System.Drawing.Size(83, 22);
-            this.radioButtonWeek.TabIndex = 1;
-            this.radioButtonWeek.TabStop = true;
-            this.radioButtonWeek.Text = "週単位";
+            this.toolTip1.SetToolTip(this.radioButtonWeek, resources.GetString("radioButtonWeek.ToolTip"));
             this.radioButtonWeek.UseVisualStyleBackColor = true;
             // 
             // radioButtonDay
             // 
-            this.radioButtonDay.AutoSize = true;
-            this.radioButtonDay.Location = new System.Drawing.Point(190, 25);
+            resources.ApplyResources(this.radioButtonDay, "radioButtonDay");
             this.radioButtonDay.Name = "radioButtonDay";
-            this.radioButtonDay.Size = new System.Drawing.Size(83, 22);
-            this.radioButtonDay.TabIndex = 2;
-            this.radioButtonDay.TabStop = true;
-            this.radioButtonDay.Text = "日単位";
+            this.toolTip1.SetToolTip(this.radioButtonDay, resources.GetString("radioButtonDay.ToolTip"));
             this.radioButtonDay.UseVisualStyleBackColor = true;
             // 
             // labelCompressDestination
             // 
-            this.labelCompressDestination.AutoSize = true;
-            this.labelCompressDestination.Font = new System.Drawing.Font("ＭＳ 明朝", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelCompressDestination.Location = new System.Drawing.Point(12, 280);
+            resources.ApplyResources(this.labelCompressDestination, "labelCompressDestination");
             this.labelCompressDestination.Name = "labelCompressDestination";
-            this.labelCompressDestination.Size = new System.Drawing.Size(229, 20);
-            this.labelCompressDestination.TabIndex = 6;
-            this.labelCompressDestination.Text = "圧縮先のフォルダ(参照)";
+            this.toolTip1.SetToolTip(this.labelCompressDestination, resources.GetString("labelCompressDestination.ToolTip"));
             // 
             // textBoxCompress
             // 
-            this.textBoxCompress.Location = new System.Drawing.Point(12, 315);
+            resources.ApplyResources(this.textBoxCompress, "textBoxCompress");
             this.textBoxCompress.Name = "textBoxCompress";
-            this.textBoxCompress.Size = new System.Drawing.Size(600, 25);
-            this.textBoxCompress.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.textBoxCompress, resources.GetString("textBoxCompress.ToolTip"));
             // 
             // btnCompressBrowse
             // 
-            this.btnCompressBrowse.Location = new System.Drawing.Point(620, 315);
+            resources.ApplyResources(this.btnCompressBrowse, "btnCompressBrowse");
             this.btnCompressBrowse.Name = "btnCompressBrowse";
-            this.btnCompressBrowse.Size = new System.Drawing.Size(75, 25);
-            this.btnCompressBrowse.TabIndex = 8;
-            this.btnCompressBrowse.Text = "参照...";
+            this.toolTip1.SetToolTip(this.btnCompressBrowse, resources.GetString("btnCompressBrowse.ToolTip"));
             this.btnCompressBrowse.UseVisualStyleBackColor = true;
             this.btnCompressBrowse.Click += new System.EventHandler(this.btnCompressBrowse_Click);
             // 
             // labelCompressionMethod
             // 
-            this.labelCompressionMethod.AutoSize = true;
-            this.labelCompressionMethod.Font = new System.Drawing.Font("ＭＳ 明朝", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelCompressionMethod.Location = new System.Drawing.Point(12, 380);
+            resources.ApplyResources(this.labelCompressionMethod, "labelCompressionMethod");
             this.labelCompressionMethod.Name = "labelCompressionMethod";
-            this.labelCompressionMethod.Size = new System.Drawing.Size(109, 20);
-            this.labelCompressionMethod.TabIndex = 12;
-            this.labelCompressionMethod.Text = "圧縮方式：";
-            this.labelCompressionMethod.Visible = false;
+            this.toolTip1.SetToolTip(this.labelCompressionMethod, resources.GetString("labelCompressionMethod.ToolTip"));
             // 
             // radioButtonLossless
             // 
-            this.radioButtonLossless.AutoSize = true;
-            this.radioButtonLossless.Location = new System.Drawing.Point(140, 380);
+            resources.ApplyResources(this.radioButtonLossless, "radioButtonLossless");
             this.radioButtonLossless.Name = "radioButtonLossless";
-            this.radioButtonLossless.Size = new System.Drawing.Size(84, 22);
-            this.radioButtonLossless.TabIndex = 13;
             this.radioButtonLossless.TabStop = true;
-            this.radioButtonLossless.Text = "ロスレス";
+            this.toolTip1.SetToolTip(this.radioButtonLossless, resources.GetString("radioButtonLossless.ToolTip"));
             this.radioButtonLossless.UseVisualStyleBackColor = true;
-            this.radioButtonLossless.Visible = false;
             // 
             // radioButtonStandard
             // 
-            this.radioButtonStandard.AutoSize = true;
-            this.radioButtonStandard.Location = new System.Drawing.Point(220, 380);
+            resources.ApplyResources(this.radioButtonStandard, "radioButtonStandard");
             this.radioButtonStandard.Name = "radioButtonStandard";
-            this.radioButtonStandard.Size = new System.Drawing.Size(101, 22);
-            this.radioButtonStandard.TabIndex = 14;
             this.radioButtonStandard.TabStop = true;
-            this.radioButtonStandard.Text = "標準圧縮";
+            this.toolTip1.SetToolTip(this.radioButtonStandard, resources.GetString("radioButtonStandard.ToolTip"));
             this.radioButtonStandard.UseVisualStyleBackColor = true;
-            this.radioButtonStandard.Visible = false;
             // 
             // labelLosslessNote
             // 
-            this.labelLosslessNote.AutoSize = true;
-            this.labelLosslessNote.Font = new System.Drawing.Font("ＭＳ 明朝", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            resources.ApplyResources(this.labelLosslessNote, "labelLosslessNote");
             this.labelLosslessNote.ForeColor = System.Drawing.Color.Red;
-            this.labelLosslessNote.Location = new System.Drawing.Point(12, 410);
             this.labelLosslessNote.Name = "labelLosslessNote";
-            this.labelLosslessNote.Size = new System.Drawing.Size(512, 17);
-            this.labelLosslessNote.TabIndex = 15;
-            this.labelLosslessNote.Text = "※完全可逆圧縮を選択すると、解凍時に画質劣化を防げます。";
-            this.labelLosslessNote.Visible = false;
+            this.toolTip1.SetToolTip(this.labelLosslessNote, resources.GetString("labelLosslessNote.ToolTip"));
             // 
             // checkBoxCompress
             // 
-            this.checkBoxCompress.AutoSize = true;
-            this.checkBoxCompress.Location = new System.Drawing.Point(12, 350);
+            resources.ApplyResources(this.checkBoxCompress, "checkBoxCompress");
             this.checkBoxCompress.Name = "checkBoxCompress";
-            this.checkBoxCompress.Size = new System.Drawing.Size(217, 22);
-            this.checkBoxCompress.TabIndex = 9;
-            this.checkBoxCompress.Text = "月ごとにファイルを圧縮する";
+            this.toolTip1.SetToolTip(this.checkBoxCompress, resources.GetString("checkBoxCompress.ToolTip"));
             this.checkBoxCompress.UseVisualStyleBackColor = true;
             this.checkBoxCompress.CheckedChanged += new System.EventHandler(this.checkBoxCompress_CheckedChanged);
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(680, 400);
+            resources.ApplyResources(this.btnExit, "btnExit");
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(100, 30);
-            this.btnExit.TabIndex = 20;
-            this.btnExit.Text = "終了";
+            this.toolTip1.SetToolTip(this.btnExit, resources.GetString("btnExit.ToolTip"));
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnApply
             // 
-            this.btnApply.Location = new System.Drawing.Point(560, 400);
+            resources.ApplyResources(this.btnApply, "btnApply");
             this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(100, 30);
-            this.btnApply.TabIndex = 21;
-            this.btnApply.Text = "適応";
+            this.toolTip1.SetToolTip(this.btnApply, resources.GetString("btnApply.ToolTip"));
             this.btnApply.UseVisualStyleBackColor = true;
             this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
             // checkBoxOutput
             // 
-            this.checkBoxOutput.AutoSize = true;
-            this.checkBoxOutput.Location = new System.Drawing.Point(12, 210);
+            resources.ApplyResources(this.checkBoxOutput, "checkBoxOutput");
             this.checkBoxOutput.Name = "checkBoxOutput";
-            this.checkBoxOutput.Size = new System.Drawing.Size(163, 22);
-            this.checkBoxOutput.TabIndex = 6;
-            this.checkBoxOutput.Text = "出力先を指定する";
+            this.toolTip1.SetToolTip(this.checkBoxOutput, resources.GetString("checkBoxOutput.ToolTip"));
             this.checkBoxOutput.UseVisualStyleBackColor = true;
             this.checkBoxOutput.CheckedChanged += new System.EventHandler(this.checkBoxOutput_CheckedChanged);
             // 
             // textBoxOutput
             // 
-            this.textBoxOutput.Location = new System.Drawing.Point(12, 240);
+            resources.ApplyResources(this.textBoxOutput, "textBoxOutput");
             this.textBoxOutput.Name = "textBoxOutput";
-            this.textBoxOutput.Size = new System.Drawing.Size(600, 25);
-            this.textBoxOutput.TabIndex = 7;
-            this.textBoxOutput.Visible = false;
+            this.toolTip1.SetToolTip(this.textBoxOutput, resources.GetString("textBoxOutput.ToolTip"));
             // 
             // btnOutputBrowse
             // 
-            this.btnOutputBrowse.Location = new System.Drawing.Point(620, 240);
+            resources.ApplyResources(this.btnOutputBrowse, "btnOutputBrowse");
             this.btnOutputBrowse.Name = "btnOutputBrowse";
-            this.btnOutputBrowse.Size = new System.Drawing.Size(75, 25);
-            this.btnOutputBrowse.TabIndex = 8;
-            this.btnOutputBrowse.Text = "参照...";
+            this.toolTip1.SetToolTip(this.btnOutputBrowse, resources.GetString("btnOutputBrowse.ToolTip"));
             this.btnOutputBrowse.UseVisualStyleBackColor = true;
-            this.btnOutputBrowse.Visible = false;
             this.btnOutputBrowse.Click += new System.EventHandler(this.btnOutputBrowse_Click);
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            this.toolTip1.SetToolTip(this.label2, resources.GetString("label2.ToolTip"));
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // tabControlMain
+            // 
+            resources.ApplyResources(this.tabControlMain, "tabControlMain");
+            this.tabControlMain.Controls.Add(this.tabPageFile);
+            this.tabControlMain.Controls.Add(this.tabPageCompress);
+            // 新規追加：追加タブの登録
+            this.tabControlMain.Controls.Add(this.tabPageExtract);
+            this.tabControlMain.Controls.Add(this.tabPagePhotoInfo);
+            this.tabControlMain.Name = "tabControlMain";
+            this.tabControlMain.SelectedIndex = 0;
+            this.toolTip1.SetToolTip(this.tabControlMain, resources.GetString("tabControlMain.ToolTip"));
+            // 
+            // tabPageFile
+            // 
+            resources.ApplyResources(this.tabPageFile, "tabPageFile");
+            this.tabPageFile.Controls.Add(this.labelGroupHeader);
+            this.tabPageFile.Controls.Add(this.label1);
+            this.tabPageFile.Controls.Add(this.textBox1);
+            this.tabPageFile.Controls.Add(this.btnBrowse);
+            this.tabPageFile.Controls.Add(this.pictureBoxInfo);
+            this.tabPageFile.Controls.Add(this.checkBoxFileDetail);
+            this.tabPageFile.Controls.Add(this.groupBoxFolderGrouping);
+            this.tabPageFile.Controls.Add(this.pictureBoxFileDetailInfo);
+            this.tabPageFile.Controls.Add(this.checkBoxOutput);
+            this.tabPageFile.Controls.Add(this.textBoxOutput);
+            this.tabPageFile.Controls.Add(this.btnOutputBrowse);
+            this.tabPageFile.Name = "tabPageFile";
+            this.toolTip1.SetToolTip(this.tabPageFile, resources.GetString("tabPageFile.ToolTip"));
+            // 
+            // tabPageCompress
+            // 
+            resources.ApplyResources(this.tabPageCompress, "tabPageCompress");
+            this.tabPageCompress.Controls.Add(this.labelCompressDestination);
+            this.tabPageCompress.Controls.Add(this.textBoxCompress);
+            this.tabPageCompress.Controls.Add(this.btnCompressBrowse);
+            this.tabPageCompress.Controls.Add(this.pictureBoxCompressInfo);
+            this.tabPageCompress.Controls.Add(this.checkBoxCompress);
+            this.tabPageCompress.Controls.Add(this.labelCompressionMethod);
+            this.tabPageCompress.Controls.Add(this.radioButtonLossless);
+            this.tabPageCompress.Controls.Add(this.radioButtonStandard);
+            this.tabPageCompress.Controls.Add(this.labelLosslessNote);
+            this.tabPageCompress.Controls.Add(this.label2);
+            this.tabPageCompress.Name = "tabPageCompress";
+            this.toolTip1.SetToolTip(this.tabPageCompress, resources.GetString("tabPageCompress.ToolTip"));
+            // 
+            // 新規追加：tabPageExtract の設定
+            this.tabPageExtract.Text = "解凍";
+            // 必要に応じてコントロール追加やプロパティ設定を実施
+            // this.tabPageExtract.Controls.Add(...);
+            
+            // 新規追加：tabPagePhotoInfo の設定
+            this.tabPagePhotoInfo.Text = "撮影情報";
+            // 必要に応じてコントロール追加やプロパティ設定を実施
+            // this.tabPagePhotoInfo.Controls.Add(...);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.checkBoxOutput);
-            this.Controls.Add(this.textBoxOutput);
-            this.Controls.Add(this.btnOutputBrowse);
-            this.Controls.Add(this.checkBoxCompress);
-            this.Controls.Add(this.labelLosslessNote);
-            this.Controls.Add(this.radioButtonStandard);
-            this.Controls.Add(this.radioButtonLossless);
-            this.Controls.Add(this.labelCompressionMethod);
-            this.Controls.Add(this.pictureBoxCompressInfo);
-            this.Controls.Add(this.btnCompressBrowse);
-            this.Controls.Add(this.textBoxCompress);
-            this.Controls.Add(this.labelCompressDestination);
-            this.Controls.Add(this.groupBoxFolderGrouping);
-            this.Controls.Add(this.pictureBoxFileDetailInfo);
-            this.Controls.Add(this.checkBoxFileDetail);
-            this.Controls.Add(this.btnBrowse);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.pictureBoxInfo);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.labelGroupHeader);
+            this.Controls.Add(this.tabControlMain);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnApply);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.toolTip1.SetToolTip(this, resources.GetString("$this.ToolTip"));
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFileDetailInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCompressInfo)).EndInit();
             this.groupBoxFolderGrouping.ResumeLayout(false);
             this.groupBoxFolderGrouping.PerformLayout();
+            this.tabControlMain.ResumeLayout(false);
+            this.tabPageFile.ResumeLayout(false);
+            this.tabPageFile.PerformLayout();
+            this.tabPageCompress.ResumeLayout(false);
+            this.tabPageCompress.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label label2;
     }
 }
 
